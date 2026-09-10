@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Chicken Invaders: Space Arcade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-wrapper">
+    <!-- Heads-Up Display (HUD) -->
+    <div id="ui-overlay">
+      <div class="hud-top">
+        <div class="hud-box">
+          <span class="hud-label">SCORE</span>
+          <span id="score-val" class="hud-value glow-yellow">0</span>
+        </div>
+        <div class="hud-box">
+          <span class="hud-label">HIGH SCORE</span>
+          <span id="highscore-val" class="hud-value glow-cyan">0</span>
+        </div>
+        <div class="hud-box">
+          <span class="hud-label">WAVE</span>
+          <span id="wave-val" class="hud-value glow-purple">1</span>
+        </div>
+      </div>
+
+      <!-- Health & Active Powerups -->
+      <div class="hud-bottom-status">
+        <div class="health-container">
+          <span class="hud-label">HULL HEALTH</span>
+          <div class="health-bar-border">
+            <div id="health-bar-fill"></div>
+          </div>
+        </div>
+        <div id="powerup-badges">
+          <!-- Active powerup badges injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Pause Button -->
+      <button id="btn-pause" class="icon-btn hide" aria-label="Pause Game">⏸</button>
+    </div>
+
+    <!-- Main Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Start / Main Menu Screen Overlay -->
+    <div id="screen-start" class="screen-overlay active">
+      <h1 class="title-glow">CHICKEN<br><span class="title-sub">INVADERS</span></h1>
+      <p class="subtitle">Defend the galaxy from the cosmic poultry invasion!</p>
+      
+      <div class="controls-guide">
+        <p><strong>Desktop Controls:</strong></p>
+        <p>Move: <kbd>A</kbd> / <kbd>D</kbd> or <kbd>←</kbd> <kbd>→</kbd></p>
+        <p>Shoot: <kbd>Spacebar</kbd></p>
+        <p>Pause: <kbd>P</kbd></p>
+      </div>
+
+      <button id="btn-start" class="arcade-btn">LAUNCH MISSION</button>
+    </div>
+
+    <!-- Pause Screen Overlay -->
+    <div id="screen-pause" class="screen-overlay hide">
+      <h2 class="title-glow">GAME PAUSED</h2>
+      <button id="btn-resume" class="arcade-btn">RESUME</button>
+    </div>
+
+    <!-- Game Over Screen Overlay -->
+    <div id="screen-gameover" class="screen-overlay hide">
+      <h1 class="title-glow danger">MISSION FAILED</h1>
+      <p class="subtitle">The cosmic chickens overrun Earth!</p>
+
+      <div class="stats-box">
+        <div class="stat-row"><span>FINAL SCORE:</span><span id="final-score" class="glow-yellow">0</span></div>
+        <div class="stat-row"><span>HIGH SCORE:</span><span id="final-highscore" class="glow-cyan">0</span></div>
+        <div class="stat-row"><span>WAVES CLEARED:</span><span id="final-wave" class="glow-purple">1</span></div>
+      </div>
+
+      <button id="btn-restart" class="arcade-btn">TRY AGAIN</button>
+    </div>
+
+    <!-- On-screen Touch Controls for Mobile -->
+    <div id="mobile-controls">
+      <div class="touch-group left-group">
+        <button id="btn-touch-left" class="touch-btn">◄</button>
+        <button id="btn-touch-right" class="touch-btn">►</button>
+      </div>
+      <div class="touch-group right-group">
+        <button id="btn-touch-fire" class="touch-btn fire-btn">🔥 FIRE</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
